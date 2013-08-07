@@ -1,0 +1,71 @@
+Practica final
+
+Mapa de memoria auxiliar
+
+a:  300 -> F00
+
+b:  302 -> F02
+
+c:  304 -> F04
+
+
+l:  400 -> F10
+
+r:  402 -> F12
+
+l(copy) F14
+
+ax^2: 500 -> E00
+bx:   502 -> E02
+C:    504 -> E04
+
+
+1.0: FC1
+
+2.0: FCD
+
+4.0: FC4
+
+100.0: C10
+
+repeticiones: FF4
+
+
+Auxiliares de la raiz:
+
+x_n-1:                  A00
+x_n:                    A02
+x al que se le calcula: A04
+f(x_n-1):               A06
+f'(x_n-1):              A08
+f/f':                   A10
+
+Cantidad de raices en el intervalo:   AB0
+Auxiliar para comprar raices: AB2
+
+
+
+b*b:       B00
+4ac:       B02
+b*b - 4ac: B04
+sqrt(^^):  B06
+-b:        B08
+2a:        B10
+-b / 2a    B12
+sqrt/2a    B14
+
+
+
+Jumps:
+
+Inicio del programa: 0
+
+Ciclo de la iteracion
+sobre el rango:  30
+
+Raiz: 200
+
+
+Fin del programa: DFF
+
+DET menor que 0: 800
