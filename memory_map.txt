@@ -30,7 +30,6 @@ C:    504 -> E04
 
 repeticiones: FF4
 
-
 Auxiliares de la raiz:
 
 x_n-1:                  A00
