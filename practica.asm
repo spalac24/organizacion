@@ -23,6 +23,8 @@ STF F12 ;r
 
 
 JMP 30
+
+
 #30
 ;inicio del ciclo que itera sobre el intervalo
 
@@ -99,18 +101,12 @@ LDF A00      ;Cargo el xn-1
 MULF A00     ;lo elevo al cuadrado
 SUBF A04     ;le resto x original
 STF A06      ;xi*xi-x
-;msg f
-;out 1,ax
 LDF FCD      ;cargo 2.0
 MULF A00     ;lo multiplico por x
 STF A08      ;f'(xi)
-;msg fp
-;out 1,ax
 LDF A06      ;f
 DIVF A08     ;f/f'
 STF A10
-;msg divi
-;out 1,ax
 LDF A00      ;xi
 SUBF A10     ;xi - f/f'
 STF A00
@@ -224,3 +220,19 @@ OUT 1,AX
 ;SQUARE TEST
 0011101111001000
 0000000000000000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
