@@ -40,7 +40,7 @@ MSG "x = "
 OUT 1,AX         ;imprima el valor sobre el que esta iterando
 MULF F10         ;l^2, x = l, luego f(x) = l*l*a+l*b+c
 MULF F00         ;a*l^2
-STF E00          
+STF E00
 LDF F10          ;l
 MULF F02         ;b*l
 STF E02
@@ -80,6 +80,7 @@ STF B08
 DIVF B10  ;-b/2*a
 STF B12
 LDF B04   ;b^2-4*a*c
+JME 800
 JMP 200   ;calcule la raiz
 
 
@@ -137,7 +138,7 @@ JMP 250
 #250
 LDF B12      ;-b/(2a)
 ADDF B14     ;-b/(2a) + raiz/(2a)
-STF AB2      ;similar al anaterior analisis, si no esta salta al final      
+STF AB2      ;similar al anaterior analisis, si no esta salta al final
 SUBF F14
 JME DDD
 LDF AB2
@@ -162,6 +163,11 @@ HLT
 #DCD
 MSG "}"
 MSG "(There are no roots in the interval)"
+MSG "The program has finished"
+HLT
+
+#800
+MSG "There are no real roots"
 MSG "The program has finished"
 HLT
 
@@ -220,19 +226,3 @@ OUT 1,AX
 ;SQUARE TEST
 0011101111001000
 0000000000000000
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
