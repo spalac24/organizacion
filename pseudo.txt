@@ -1,0 +1,29 @@
+Lea a
+Lea b
+Lea c
+Lea l
+Lea r
+l_copy <- l
+mientrasque l <= r
+	    Imprima l
+	    Imprima a*l*l+b*l+c
+	    l <- l+1
+
+p <- -b
+q <- b^2-4*a*c
+s <- 2*a
+t <- -b/s
+
+ax <- 100.0
+
+32 veces:
+   ax <- ax+(ax*ax-q)/(2*ax)
+   
+;ax ahora tiene el valor de raiz de q
+u <- ax/2*a
+
+si l_copy <= t+u <= r entonces
+   imprima t+u
+
+si l_copy <= t-u <= r entonces
+   imprima t-u
