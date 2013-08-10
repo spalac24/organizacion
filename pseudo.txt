@@ -9,10 +9,18 @@ mientrasque l <= r
 	    Imprima a*l*l+b*l+c
 	    l <- l+1
 
+
+fin mientrasque
+
+
 p <- -b
 q <- b^2-4*a*c
 s <- 2*a
 t <- -b/s
+
+si q < 0 entonces
+   imprima "No hay raices reales"
+finsi
 
 ax <- 100.0
 
@@ -25,5 +33,9 @@ u <- ax/2*a
 si l_copy <= t+u <= r entonces
    imprima t+u
 
+finsi
+   
 si l_copy <= t-u <= r entonces
    imprima t-u
+
+finsi
