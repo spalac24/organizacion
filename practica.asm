@@ -80,7 +80,9 @@ STF B08
 DIVF B10  ;-b/2*a
 STF B12
 LDF B04   ;b^2-4*a*c
+ADDF B04
 JME 800
+LDF B04
 JMP 200   ;calcule la raiz
 
 
