@@ -1,0 +1,142 @@
+
+\documentclass[12pt,journal,compsoc]{IEEEtran}
+\usepackage[spanish]{babel}
+\usepackage{mathtools}
+
+\usepackage{url}
+\ifCLASSOPTIONcompsoc
+\else
+\fi
+
+\ifCLASSINFOpdf
+\else
+\fi
+\providecommand{\PSforPDF}[1]{#1}
+
+\newcommand\MYhyperrefoptions{bookmarks=true,bookmarksnumbered=true,
+pdfpagemode={UseOutlines},plainpages=false,pdfpagelabels=true,
+colorlinks=true,linkcolor={black},citecolor={black},pagecolor={black},
+urlcolor={black},
+pdftitle={
+ST0254 – Organizaci\'on de computadores
+Informe final, Práctica 1: Ecuaciones de segundo grado
+ ST},
+pdfsubject={Assembler en Simuproc},
+pdfauthor={Santiago Palacio Gómez, Pablo Velásquez Manrique, Santiago Zubieta Ortiz},
+pdfkeywords={Organización de Computadores, ST0254, Simuproc, Assembler,Universidad EAFIT}
+}
+\hyphenation{}
+
+
+\begin{document}
+\title{
+ST0254 – Organizaci\'on de computadores\\
+Informe final, Pr\'actica 1: Ecuaciones de segundo grado}
+\author{Santiago~Palacio~G\'omez,~\IEEEmembership{Estudiante,~EAFIT,}
+        Santiago~Zubieta~Ortiz,~\IEEEmembership{Estudiante,~EAFIT,}
+        y~Pablo~Vel\'asquez~Manrique,~\IEEEmembership{Estudiante,~EAFIT}
+        
+\begin{abstract}
+Informe final de la pr\'actica 1 de Organizaci\'on de Computadores.
+\end{abstract}
+\begin{IEEEkeywords}
+Organizaci\'on de Computadores, ST0254, Simuproc, Assembler, Universidad EAFIT
+\end{IEEEkeywords}}
+
+
+\maketitle
+
+
+\IEEEdisplaynotcompsoctitleabstractindextext
+\IEEEpeerreviewmaketitle
+
+
+
+\section{Introducci\'on}
+\IEEEPARstart{E}{ste} reporte corresponde a la entrega final de la pr\'actica 1
+de Organizaci\'on de Computadores, en la Universidad EAFIT, 
+Ecuaciones de Segundo Grado.
+
+Profesor Jose Luis Montoya Pareja.
+
+ 
+\hfill 9 de Agosto de 2013
+
+\section{Descripci\'on del programa}
+
+De acuerdo con las especificaciones presentadas, este programa recibe 3 coeficientes de una ecuaci\'on cuadr\'atica, y los valores l\'imite de un intervalo.
+
+En este punto, el programa itera sobre el intervalo haciendo saltos de una unidad, tomando como l\'imite el extremo superior el valor superior del intervalo. Luego, usando la 'f\'ormula del estudiante' ($x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$), calcula las ra\'ices del polinomio, y en caso de que estas existan imprime las que se encuentren en el intervalo dado, si no existen, el programa especifica que no hay raices reales.
+
+\section{Pruebas}
+Procedemos a probar diferentes polinomios, teniendo una respuesta obtenida y un resultado esperado para comparar
+\begin{itemize}
+	\item $ x^2 + 3*x - 1$ 
+    \\Rango: -3, 1
+    \\Resultado Esperado: x = -3,302, 0,302
+    \\Resultado Obtenido: x = -3,302, 0,302
+    \\ \item $x^2 + 2*x - 3$
+    \\Rango: -3, 1
+    \\Resultado Esperado: x = -3, 1
+    \\Resultado Obtenido: x = -3, 1
+    \\ \item $9*x^2 + 3*x - 19$
+    \\Rango: -3, 1
+    \\Resultado Esperado: x = -1,629, 1.295
+    \\Resultado Obtenido: x = -1,629, 1.295
+    \\ \item $9*x^2 + 3*x + 19$
+    \\Rango: -3, 1
+    \\Resultado Esperado: No hay raices reales.
+    \\Resultado Obtenido: No hay raices reales.
+    \\ \item $x^2 + 6*x + 9$
+    \\Rango: -3, 1
+    \\Resultado Esperado: x = -3
+    \\Resultado Obtenido: x = -2,996
+
+    
+\end{itemize}
+
+
+\section{Dificultades/Problemas}
+Durante el desarrollo de la pr\'actica se debieron sortear y superar problemas tales como:
+\begin{enumerate}
+\item La necesidad de Windows como sistema operativo, dado
+    que nuestro equipo tiene un conjunto de diversos OS, tales
+    como: OSX, Fedora, etc.
+    \item La curva de aprendizaje de Simuproc, si bien no es muy compleja,
+    requiri\'o un tiempo de acercamiento y de acoplamiento a una programaci\'on
+    totalmente secuencial sin uso de estructuras y dem\'as elementos
+    de alto nivel. 
+    \item Confusi\'on respecto al enunciado de la pr\'actica expresada por
+    varias personas en el momento de la Monitor\'ia, debido a la posibilidad
+    de que el resultado de las ra\'ices del polinomio no fuese un n\'umero
+    entero.
+    \item Dado que no hay una funcion predefinida
+para calcular ra\'ices cuadradas, se ha presentado la necesidad de buscar maneras apropiadas para hacer esto
+
+\end{enumerate}
+
+\section{Posibles mejoras}
+Elementos que podr\'ian mejorar las caracter\'isticas o procesos de esta pr\'actica podr\'ian ser:
+\begin{enumerate}
+	\item Un manejo mucho m\'as preciso del error, minimizando as\'i la diferencia entre el valor esperado y el valor obtenido.
+    \item Si bien actualmente se eval\'ua e imprime en cada punto la funci\'on para fines de "trazado", es posible omitir esta impresi\'on sin perder funcionalidad. Por lo cual podr\'ia agregarse la opci\'on de que sea el usuario quien decida si quiere ver la impresi\'on de estos valores en el intervalo o solo las ra\'ices del polinomio.
+    \item Podr\'ia evaluarse la opci\'on de desarrollar la implementaci\'on en un ambiente que permita una mayor precisi\'on. As'i como la capacidad de tener un mejor manejo de variables, lo cual puede llegar a facilitar la lectura y escritura del c\'odigo. En s\'ntesis, si bien la herramienta planteada logra cumplir los parámetros necesarios para la simulaci\'on, en la práctica se ha notado que hay elementos que podrían mejorar.
+
+\end{enumerate}
+
+\begin{thebibliography}{2}
+
+\bibitem{SimuProc}
+V.~Yepes B., \emph{p\'agina web SimuProc}, 
+\url{https://sites.google.com/site/simuproc/}
+
+\bibitem{Formula}
+Colaboradores de Wikipedia, \emph{F\'ormula del Estudiante}
+\url{http://en.wikipedia.org/wiki/Quadratic_equation}
+
+
+\end{thebibliography}
+
+
+\end{document}
+
