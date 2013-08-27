@@ -18,7 +18,7 @@ int main () {
 		 "fld %[c2];"
 		 "fsubp;"
 		 "fstp %[c]"
-		 : [a1]"+m"(a1), [b1]"+m"(b1), [c1]"+m"(c1), [a2]"+m"(a2), [b2]"+m"(b2), [c2]"+m"(c2):[a]"m"(a), [b]"m"(b), [c]"m"(c));
+		 : [a1]"=m"(a1), [b1]"=m"(b1), [c1]"=m"(c1), [a2]"=m"(a2), [b2]"=m"(b2), [c2]"=m"(c2):[a]"m"(a), [b]"m"(b), [c]"m"(c));
 	printf("finding roots of: %f %f %f\n",a,b,c);
 
 	float bb,ac,den,mb;
@@ -51,7 +51,7 @@ int main () {
 		"fld %[a];"
 		"fmulp;"
 		"fstp %[den]"
-		: [a]"+m"(a),[b]"+m"(b),[c]"+m"(c),[bb]"+m"(bb),[ac]"+m"(ac),[den]"+m"(den),[mb]"+m"(mb));
+		: [bb]"=m"(bb),[ac]"=m"(ac),[den]"=m"(den),[mb]"=m"(mb):[a]"m"(a),[b]"m"(b),[c]"m"(c));
 	printf ("-b is %f, b2 is %f, ac is %f, den is %f\n",mb,bb,ac,den);
 	
 }
