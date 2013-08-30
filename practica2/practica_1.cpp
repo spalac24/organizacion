@@ -2,11 +2,15 @@
 
 int main () {
 	float a1,b1,c1,a2,b2,c2;
+	float c_4,c_e;
+	c_4 = 4.0;
+	c_e = 1e-4;
 	printf("por favor ingrese los coeficientes de las dos funciones\n");
 	scanf("%f %f %f",&a1,&b1,&c1);
 	scanf("%f %f %f",&a2,&b2,&c2);
 	float a,b,c;
-	__asm__ ("fld %[a1];"
+	__asm__ (
+		 "fld %[a1];"
 		 "fld %[a2];"
 		 "fsubp;"
 		 "fstp %[a];"
@@ -36,13 +40,7 @@ int main () {
 		"fld %[a];"
 		"fld %[c];"
 		"fmulp;"
-		"fld1;"
-		"fld1;"
-		"fld1;"
-		"fld1;"
-		"faddp;"
-		"faddp;"
-		"faddp;"
+		"fld %[cua];"
 		"fmulp;"
 		"fstp %[ac];"
 		"fld1;"
@@ -50,8 +48,31 @@ int main () {
 		"faddp;"
 		"fld %[a];"
 		"fmulp;"
-		"fstp %[den]"
-		: [bb]"=m"(bb),[ac]"=m"(ac),[den]"=m"(den),[mb]"=m"(mb):[a]"m"(a),[b]"m"(b),[c]"m"(c));
+		"fstp %[den];"
+		: [bb]"=m"(bb),[ac]"=m"(ac),[den]"=m"(den),[mb]"=m"(mb):[a]"m"(a),[b]"m"(b),[c]"m"(c), [cua]"m"(c_4));
 	printf ("-b is %f, b2 is %f, ac is %f, den is %f\n",mb,bb,ac,den);
-	
+	float aabs;
+	float dump;
+	int tag;
+	__asm__(
+		"fld %[a];"
+		"fabs;"
+		"fstp %[aabs];"
+		"fld %[aabs];"
+		"fld %[c_e];"
+		"fsubp;"
+		"fstp %[dump];"
+		"jbe menor;"
+		"ja mayor;"
+		"jmp fin;"
+		"menor:"
+		"mov $20,%[tag];"
+		"jmp fin;"
+		"mayor:"
+		"mov $10,%[tag];"
+		"jmp fin;"
+		"fin:"
+		: [dump]"=m"(dump),[aabs]"=m"(aabs), [tag]"=g"(tag) : [a]"m"(a), [c_e]"m"(c_e));
+	printf("%d\n",tag);
+	printf("%f %f %f\n",aabs,c_e,aabs-c_e);
 }

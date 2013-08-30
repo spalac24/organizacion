@@ -6,7 +6,7 @@ using namespace std;
 int main() {
 
     float arg1, arg2, add, sub, mul, div ;
-
+    int tag = 0;
     printf( "Enter two numbers : " );
     scanf("%f %f",&arg1,&arg2);
 
