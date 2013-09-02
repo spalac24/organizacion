@@ -2,6 +2,8 @@
 #include <cstdio>
 #include <cstdlib>
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
@@ -10,7 +12,7 @@ int main () {
 	float c_4,c_e;
 	c_4 = 4.0;
 	c_e = 1e-4;
-	printf("por favor ingrese los coeficientes de las dos funciones\n");
+	printf("Please enter function coefficients\n");
 	scanf("%f %f %f",&a1,&b1,&c1);
 	scanf("%f %f %f",&a2,&b2,&c2);
 	float a,b,c;
@@ -156,9 +158,10 @@ int main () {
 		break;
 	}
 	
-	freopen("in.txt","w",stdout);
-	cout<<a1<<" "<<b1<<" "<<c1<<endl;
-	cout<<a2<<" "<<b2<<" "<<c2<<endl;
-	cout<<lo<<endl<<hi<<endl;
-	system("python plotter.py < in.txt");
+	stringstream sout;
+	sout<<"python plotter.py ";
+	sout<<a1<<" "<<b1<<" "<<c1<<" ";
+	sout<<a2<<" "<<b2<<" "<<c2<<" ";
+	sout<<lo<<" "<<hi<<" ";
+	system(sout.str().c_str());
 }

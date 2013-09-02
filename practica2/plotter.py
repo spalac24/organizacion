@@ -1,23 +1,22 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import rc
+import sys
 
 
+a = float(sys.argv[1])
+b = float(sys.argv[2])
+c = float(sys.argv[3])
+a2 = float(sys.argv[4])
+b2 = float(sys.argv[5])
+c2 = float(sys.argv[6])
+lo = float(sys.argv[7])
+hi = float(sys.argv[8])
 
-[a,b,c] = raw_input().split()
-a = float(a)
-b = float(b)
-c = float(c)
+
 lo = -10.0
 hi = 10.0
 
-[a2,b2,c2] = raw_input().split()
-a2 = float(a2)
-b2 = float(b2)
-c2 = float(c2)
-
-lo = float(input())
-hi = float(input())
 
 x2 = np.linspace(lo,hi,500)
 y2 = a2*x2*x2 + b2*x2 + c2
