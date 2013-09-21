@@ -13,8 +13,10 @@ int main () {
 	c_4 = 4.0;
 	c_e = 1e-4;
 	printf("Please enter function coefficients\n");
-	scanf("%f %f %f",&a1,&b1,&c1);
-	scanf("%f %f %f",&a2,&b2,&c2);
+	if (!scanf("%f %f %f %f %f %f",&a1,&b1,&c1,&a2,&b2,&c2)) {
+		printf("Input error\n");
+		return 0;
+	}
 	float a,b,c;
 	__asm__ (
 		 "fld %[a1];"
